@@ -1,8 +1,6 @@
 import express, { urlencoded } from "express";
-import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
 import { ConnectMongoDB } from "./mongodb/connectDB.mjs";
 import { errMiddleware } from "./middleware/errMiddleware.mjs";
 import { route } from "./routes/product_route.mjs";

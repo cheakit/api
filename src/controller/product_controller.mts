@@ -1,4 +1,3 @@
-import express from "express";
 import { productModel } from "../model/product_model.mjs";
 
 const getProducts = async (req: any, res: any) => {
