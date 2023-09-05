@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
     "start": "node dist/app.mjs",
-    "dev": "npx tsc -w & nodemon dist/app.mjs"
+    "dev": "npx tsc -w & node dist/app.mjs"
   },
   "keywords": [],
   "author": "",
