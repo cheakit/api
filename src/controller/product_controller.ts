@@ -1,6 +1,7 @@
-import { productModel } from "../model/product_model.mjs";
+import { Request, Response } from "express";
+import { productModel } from "../model/product_model.js";
 
-const getProducts = async (req: any, res: any) => {
+const getProducts = async (req: Request, res: Response) => {
   try {
     const product = await productModel.find({});
     res.json(product);
@@ -10,7 +11,7 @@ const getProducts = async (req: any, res: any) => {
   }
 };
 
-const getProduct = async (req: any, res: any) => {
+const getProduct = async (req: Request, res: Response) => {
   try {
     const product = await productModel.findById(req.params.id);
     res.json(product);
@@ -20,7 +21,7 @@ const getProduct = async (req: any, res: any) => {
   }
 };
 
-const deleteProduct = async (req: any, res: any) => {
+const deleteProduct = async (req: Request, res: Response) => {
   try {
     const product = await productModel.findByIdAndDelete(req.params.id);
     res.json(product);
@@ -30,7 +31,7 @@ const deleteProduct = async (req: any, res: any) => {
   }
 };
 
-const updateProduct = async (req: any, res: any) => {
+const updateProduct = async (req: Request, res: Response) => {
   try {
     const product = await productModel.findByIdAndUpdate(req.params.id);
     res.json(product);
@@ -39,7 +40,7 @@ const updateProduct = async (req: any, res: any) => {
     throw new Error(err.message);
   }
 };
-const createProduct = async (req: any, res: any) => {
+const createProduct = async (req: Request, res: Response) => {
   try {
     const product = await productModel.create(req.body);
     res.json(product);

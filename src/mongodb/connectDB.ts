@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import log from "../utils/logger.js";
 
 const URL = process.env.MONGO_URL;
 class ConnectMongoDB {
@@ -6,10 +7,11 @@ class ConnectMongoDB {
     let URL: string = process.env.MONGO_URL!;
     try {
       mongoose.connect(URL).then(() => {
-        console.log("Connected to MongoDB");
+        log.info("Connected to MongoDB");
       });
     } catch (err) {
-      console.log(err);
+      log.error(err);
+      process.exit(1);
     }
   };
 }

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-interface IProduct extends Document {
+interface ProductInterface extends Document {
   id: number;
   name: string;
   price: number;
@@ -8,7 +8,7 @@ interface IProduct extends Document {
   amount: number; // Virtual property
 }
 
-const productSchema = new mongoose.Schema<IProduct>(
+const productSchema = new mongoose.Schema<ProductInterface>(
   {
     id: {
       type: Number,
@@ -33,7 +33,7 @@ const productSchema = new mongoose.Schema<IProduct>(
   }
 );
 
-productSchema.virtual("amount").get(function (this: IProduct) {
+productSchema.virtual("amount").get(function (this: ProductInterface) {
   return this.price * this.quantity;
 });
 

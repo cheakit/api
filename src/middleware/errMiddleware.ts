@@ -1,6 +1,12 @@
-import { err_const } from "../constant/err_const.mjs";
+import { Request, Response, NextFunction } from "express";
+import { err_const } from "../constant/err_const.js";
 
-const errMiddleware = (err: any, req: any, res: any, next: any) => {
+const errMiddleware = (
+  err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   switch (statusCode) {
     case err_const.VALIDATION_ERROR:
